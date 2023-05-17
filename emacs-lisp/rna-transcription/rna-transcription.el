@@ -2,8 +2,16 @@
 
 ;;; Commentary:
 
+
+(defun to-rna-1 (nt)
+  (cl-case nt
+    (?G ?C)
+    (?C ?G)
+    (?T ?A)
+    (?A ?U)))
+
 (defun to-rna (strand)
-;;; Code:
+  (concat (seq-map #'to-rna-1 strand))
 )
 
 (provide 'rna-transcription)
