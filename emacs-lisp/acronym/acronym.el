@@ -3,9 +3,11 @@
 ;;; Commentary:
 
 (defun acronym (phrase)
-  (mapconcat (lambda (word) (upcase (substring word 0 1)))
-             (split-string phrase "[[:space:]-]")
-             ""))
+  (upcase
+   (concat
+    (seq-map #'string-to-char
+             (split-string phrase "[[:space:]-]"))))
+)
 
 (provide 'acronym)
 ;;; acronym.el ends here
