@@ -4,7 +4,8 @@
 
 (defun acronym (phrase)
   (mapconcat (lambda (word) (upcase (substring word 0 1)))
-             (split-string phrase "[[:space:]-]")))
+             (split-string phrase "[[:space:]-]")
+             ""))
 
 (provide 'acronym)
 ;;; acronym.el ends here
